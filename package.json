@@ -1,0 +1,26 @@
+{
+  "name": "fortune",
+  "version": "1.0.0",
+  "description": "Fortune generator in TS",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxai/fortune.git"
+  },
+  "keywords": [
+    "fortune"
+  ],
+  "author": "Pello Altadill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pxai/fortune/issues"
+  },
+  "homepage": "https://github.com/pxai/fortune#readme",
+  "dependencies": {
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  }
+}
