@@ -1,4 +1,4 @@
-import CommandPort from "./command_port";
+import CommandPort from "../../port/driver/command_port";
 
 class FakeUser {
     private port: CommandPort;
