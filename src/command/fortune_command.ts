@@ -9,3 +9,5 @@ class FortuneCommand {
         return this._fortuneType;
     }
 }
+
+export default FortuneCommand;
