@@ -1,4 +1,4 @@
-import CommandPort from "../../port/driver/command_port";
+import CommandPort from "../../boundary/driver_port/command_port";
 import FortuneCommand from "../../command/fortune_command";
 
 class FakeUser {
