@@ -6,13 +6,13 @@ import GetFortune from "./driven_port/get_fortune";
 class Boundary implements CommandPort {
 	private model: Model;
 
-	public Boundary(poemObtainer: GetFortune, lineWriter: WriteFortunes) {
-		this.model = this.buildModel(poemObtainer, lineWriter);
+	public Boundary(getFortune: GetFortune, writeFortunes: WriteFortunes) {
+		this.model = this.buildModel(getFortune, writeFortunes);
 	}
 
-	private buildModel(poemObtainer: GetFortune, lineWriter: WriteFortunes): Model {
+	private buildModel(getFortune: GetFortune, writeFortunes: WriteFortunes): Model {
 		// Create the command handler(s)
-		DisplayRandomPoem displayRandomPoem = new DisplayRandomPoem(poemObtainer, lineWriter);
+		DisplayRandomPoem displayRandomPoem = new DisplayRandomPoem(getFortune, writeFortunes);
 
 		// Inject command handler(s) into use case model, to tie them to command
 		// types.
@@ -20,7 +20,6 @@ class Boundary implements CommandPort {
 		return model;
 	}
 
-	@Override
 	public ask(commandObject: Object) {
 		new ModelRunner().run(this.model).reactTo(commandObject);
 	}
