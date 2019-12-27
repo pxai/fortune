@@ -2,6 +2,8 @@ import Model from "../architecture/model/model";
 import CommandPort from "./driver_port/command_port";
 import WriteFortunes from "./driven_port/write_fortunes";
 import GetFortune from "./driven_port/get_fortune";
+import DisplayFortune from "./handlers/display_fortune";
+
 
 class Boundary implements CommandPort {
 	private model: Model;
@@ -12,7 +14,7 @@ class Boundary implements CommandPort {
 
 	private buildModel(getFortune: GetFortune, writeFortunes: WriteFortunes): Model {
 		// Create the command handler(s)
-		DisplayRandomPoem displayRandomPoem = new DisplayRandomPoem(getFortune, writeFortunes);
+		DisplayFortune displayFortune = new DisplayFortune(getFortune, writeFortunes);
 
 		// Inject command handler(s) into use case model, to tie them to command
 		// types.

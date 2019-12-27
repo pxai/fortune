@@ -1,4 +1,6 @@
-class FortuneCommand {
+import Command from "./command";
+
+class FortuneCommand implements Command {
     constructor (private _lang: string, private _fortuneType: string) {}
 
     get lang () {

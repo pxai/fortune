@@ -1,5 +1,5 @@
 interface WriteFortunes {
-    writeFortunes(fortunes: string[]);
+    writeFortunes(fortune: string);
 }
 
 export default WriteFortunes;
