@@ -6,7 +6,8 @@ import DisplayFortune from "./handlers/display_fortune";
 
 
 class Boundary implements CommandPort {
-	private model: Model;
+    private model: Model;
+    private displayFortune: DisplayFortune;
 
 	public Boundary(getFortune: GetFortune, writeFortunes: WriteFortunes) {
 		this.model = this.buildModel(getFortune, writeFortunes);
@@ -14,16 +15,16 @@ class Boundary implements CommandPort {
 
 	private buildModel(getFortune: GetFortune, writeFortunes: WriteFortunes): Model {
 		// Create the command handler(s)
-		DisplayFortune displayFortune = new DisplayFortune(getFortune, writeFortunes);
+		this.displayFortune = new DisplayFortune(getFortune, writeFortunes);
 
 		// Inject command handler(s) into use case model, to tie them to command
 		// types.
-		const model: Model = UseCaseModel.build(displayRandomPoem);
+		const model: Model = new Model(); //b UseCaseModel.build(displayRandomPoem);
 		return model;
 	}
 
 	public ask(commandObject: Object) {
-		new ModelRunner().run(this.model).reactTo(commandObject);
+		this.displayFortune.accept(commandObject);
 	}
 }
 

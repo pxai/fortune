@@ -12,6 +12,8 @@ class DisplayFortune implements Consumer<FortuneCommand> {
     }
 }
 
+export default DisplayFortune;
+
 interface Consumer<T> {
     accept(command: Command): void;
 }
