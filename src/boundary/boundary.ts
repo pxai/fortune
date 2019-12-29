@@ -3,6 +3,7 @@ import CommandPort from "./driver_port/command_port";
 import WriteFortunes from "./driven_port/write_fortunes";
 import GetFortune from "./driven_port/get_fortune";
 import DisplayFortune from "./handlers/display_fortune";
+import FortuneCommand from "../command/fortune_command";
 
 
 class Boundary implements CommandPort {
@@ -23,7 +24,7 @@ class Boundary implements CommandPort {
 		return model;
 	}
 
-	public ask(commandObject: Object) {
+	public ask(commandObject: FortuneCommand) {
 		this.displayFortune.accept(commandObject);
 	}
 }
